@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | StacklyOps</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/dashboard.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="main-area">
+      <header class="topbar" id="app-topbar"></header>
+      <main class="content">
+        <section class="page-heading">
+          <div>
+            <h1>Dashboard overview</h1>
+            <p>Welcome to your application workspace. Here's your current project activity.</p>
+          </div>
+          <a class="btn btn-primary" href="tasks.html">+ Create task</a>
+        </section>
+
+        <section class="grid grid-4" aria-label="Task statistics">
+          <article class="card stat-card">
+            <span class="stat-icon">▦</span>
+            <div class="stat-label">Total tasks</div>
+            <div class="stat-value" id="total-tasks">—</div>
+            <div class="stat-note">Tasks in the database</div>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-icon">✓</span>
+            <div class="stat-label">Completed</div>
+            <div class="stat-value" id="completed-tasks">—</div>
+            <div class="stat-note">Successfully completed tasks</div>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-icon">◷</span>
+            <div class="stat-label">In progress</div>
+            <div class="stat-value" id="pending-tasks">—</div>
+            <div class="stat-note">Tasks still to complete</div>
+          </article>
+          <article class="card stat-card">
+            <span class="stat-icon">%</span>
+            <div class="stat-label">Completion rate</div>
+            <div class="stat-value" id="completion-rate">—</div>
+            <div class="stat-note">Completed tasks / total tasks</div>
+          </article>
+        </section>
+
+        <section class="section-gap">
+          <article class="card">
+            <div class="toolbar">
+              <h2 class="card-title">Recent tasks</h2>
+              <a class="btn btn-secondary btn-small" href="tasks.html">View all</a>
+            </div>
+            <p class="status-message muted" id="dashboard-status">Loading tasks...</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Task ID</th>
+                    <th>Task</th>
+                    <th>Assigned User</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-tasks">
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

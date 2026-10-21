@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register | StacklyOps</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .auth-wrap{max-width:440px;margin:7vh auto;padding:24px}
+    .auth-wrap .card{padding:28px}
+    .auth-wrap label{display:block;margin:16px 0 6px}
+    .auth-wrap input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #d4dce8;border-radius:8px}
+    .auth-wrap button{width:100%;margin-top:20px}
+    .auth-message{margin-top:12px;color:#b42318}
+  </style>
+</head>
+<body>
+  <main class="auth-wrap">
+    <a class="brand" href="register.html"><span class="brand-mark">S</span><span>StacklyOps</span></a>
+    <section class="card">
+      <h1>Create account</h1>
+      <p class="muted">Register to start managing your tasks.</p>
+      <form id="register-form">
+        <label for="username">Username</label>
+        <input id="username" autocomplete="username" minlength="3" maxlength="80" required>
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" required>
+        <label for="password">Password (minimum 12 characters)</label>
+        <input id="password" type="password" autocomplete="new-password" minlength="12" required>
+        <button class="btn btn-primary" type="submit">Create account</button>
+        <p id="message" class="auth-message" role="status"></p>
+      </form>
+      <p>Already registered? <a href="login.html">Log in</a></p>
+    </section>
+  </main>
+  <script src="assets/js/register.js"></script>
+</body>
+</html>

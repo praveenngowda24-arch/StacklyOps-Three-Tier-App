@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports & Health | StacklyOps</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/reports.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="main-area">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="content">
+        <section class="page-heading">
+          <div>
+            <h1>Reports & application health</h1>
+            <p>Review service status and task activity from your application.</p>
+          </div>
+          <button class="btn btn-secondary" id="refresh-health" type="button">
+            Refresh status
+          </button>
+        </section>
+
+        <section class="grid grid-3">
+          <article class="card">
+            <span class="stat-label">Frontend</span>
+            <h2 class="card-title">Nginx web server</h2>
+            <p class="muted small">Serves the multi-page website and proxies API requests.</p>
+            <span id="frontend-status" class="badge">Checking...</span>
+          </article>
+
+          <article class="card">
+            <span class="stat-label">Backend</span>
+            <h2 class="card-title">Flask REST API</h2>
+            <p class="muted small">Handles task creation, updates, listing and deletion.</p>
+            <span id="backend-status" class="badge">Checking...</span>
+          </article>
+
+          <article class="card">
+            <span class="stat-label">Database</span>
+            <h2 class="card-title">MySQL database</h2>
+            <p class="muted small">Stores application tasks persistently.</p>
+            <span id="database-status" class="badge">Checking...</span>
+          </article>
+        </section>
+
+        <section class="grid grid-2 section-gap">
+          <article class="card">
+            <h2 class="card-title">Task report</h2>
+            <p class="card-subtitle">Current task totals retrieved from the API.</p>
+            <div class="list">
+              <div class="list-row"><span>Total tasks</span><strong id="report-total">—</strong></div>
+              <div class="list-row"><span>Completed</span><strong id="report-completed">—</strong></div>
+              <div class="list-row"><span>In progress</span><strong id="report-pending">—</strong></div>
+              <div class="list-row"><span>Completion rate</span><strong id="report-rate">—</strong></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2 class="card-title">Health check details</h2>
+            <p class="card-subtitle">Latest results from the application health endpoint.</p>
+            <p id="health-message" class="status-message" role="status">
+              Checking application services...
+            </p>
+            <p class="muted small">Last checked: <span id="last-checked">Not checked yet</span></p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

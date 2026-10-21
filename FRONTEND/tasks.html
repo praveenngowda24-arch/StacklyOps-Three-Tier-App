@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tasks | StacklyOps</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/tasks.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar"></aside>
+
+    <div class="main-area">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="content">
+
+        <!-- Page heading -->
+        <section class="page-heading">
+          <div>
+            <h1>Task management</h1>
+            <p>Create tasks, track progress, and manage your work.</p>
+          </div>
+        </section>
+
+        <!-- Create task and workflow -->
+        <section class="grid grid-2 task-page-grid">
+
+          <!-- Create task card -->
+          <article class="card create-task-card">
+            <div class="create-task-header">
+              <div class="create-task-icon">＋</div>
+              <div>
+                <h2 class="card-title">Create a task</h2>
+                <p class="card-subtitle">
+                  Turn your next idea into an actionable task.
+                </p>
+              </div>
+            </div>
+
+            <form id="task-form" class="create-task-form">
+
+              <div class="form-group">
+                <label for="task-title">Task title</label>
+                <input
+                  id="task-title"
+                  name="title"
+                  type="text"
+                  placeholder="e.g. Configure AWS networking"
+                  required
+                  maxlength="200"
+                >
+                <span class="form-hint">
+                  Keep your title short and clear.
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="task-description">Description</label>
+                <textarea
+                  id="task-description"
+                  name="description"
+                  rows="5"
+                  placeholder="Describe what needs to be done..."
+                ></textarea>
+              </div>
+
+              <div class="create-task-footer">
+                <span class="form-hint">
+                  Your task will be saved to the database.
+                </span>
+
+                <button
+                  class="btn btn-primary create-task-button"
+                  type="submit"
+                  id="create-button"
+                >
+                  <span aria-hidden="true">＋</span>
+                  Create task
+                </button>
+              </div>
+
+              <p id="form-status"
+                 class="status-message"
+                 role="status"
+                 aria-live="polite"></p>
+            </form>
+          </article>
+
+          <!-- Workflow card -->
+          <article class="card workflow-card">
+            <div class="workflow-heading">
+              <div class="workflow-icon">↗</div>
+              <div>
+                <h2 class="card-title">Your workflow</h2>
+                <p class="card-subtitle">
+                  Move your work forward, one step at a time.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-steps">
+
+              <div class="workflow-step">
+                <div class="workflow-number">1</div>
+                <div class="workflow-step-content">
+                  <strong>Create</strong>
+                  <p>Add a meaningful title and task description.</p>
+                </div>
+                <span class="workflow-step-icon">＋</span>
+              </div>
+
+              <div class="workflow-connector"></div>
+
+              <div class="workflow-step">
+                <div class="workflow-number">2</div>
+                <div class="workflow-step-content">
+                  <strong>Complete</strong>
+                  <p>Track progress and mark finished work.</p>
+                </div>
+                <span class="workflow-step-icon">✓</span>
+              </div>
+
+              <div class="workflow-connector"></div>
+
+              <div class="workflow-step">
+                <div class="workflow-number">3</div>
+                <div class="workflow-step-content">
+                  <strong>Manage</strong>
+                  <p>Review your tasks and remove unnecessary ones.</p>
+                </div>
+                <span class="workflow-step-icon">↗</span>
+              </div>
+
+            </div>
+
+            <div class="workflow-note">
+              <span class="workflow-note-dot"></span>
+              Changes are handled by your Flask API.
+            </div>
+          </article>
+
+        </section>
+
+        <!-- All tasks table -->
+        <section class="card section-gap all-tasks-card">
+
+          <div class="toolbar all-tasks-toolbar">
+            <div>
+              <h2 class="card-title">All tasks</h2>
+              <p class="card-subtitle">
+                Live data from your Flask API and MySQL database.
+              </p>
+            </div>
+
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="refresh-tasks"
+            >
+              ↻ Refresh
+            </button>
+          </div>
+
+          <p id="tasks-status"
+             class="status-message"
+             role="status">
+            Loading tasks...
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Task</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="tasks-table">
+                <tr>
+                  <td colspan="5" class="empty-state">
+                    Loading tasks...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>

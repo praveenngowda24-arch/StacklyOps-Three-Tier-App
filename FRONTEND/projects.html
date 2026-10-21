@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | StacklyOps</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/projects.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="app-sidebar"></aside>
+    <div class="main-area">
+      <header class="topbar" id="app-topbar"></header>
+
+      <main class="content">
+        <section class="page-heading">
+          <div>
+            <h1>Projects</h1>
+            <p>Explore the application components powering your three-tier environment.</p>
+          </div>
+          <a class="btn btn-primary" href="tasks.html">Manage tasks</a>
+        </section>
+
+        <section class="grid grid-3">
+          <article class="card">
+            <div class="toolbar">
+              <span class="badge badge-success">Frontend</span>
+              <span class="muted small">Tier 1</span>
+            </div>
+            <h2 class="card-title">Web application</h2>
+            <p class="card-subtitle">The user-facing interface and navigation.</p>
+            <div class="list">
+              <div class="list-row"><span>Technology</span><strong>HTML, CSS, JS</strong></div>
+              <div class="list-row"><span>Web server</span><strong>Nginx</strong></div>
+              <div class="list-row"><span>Container</span><strong>Docker</strong></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="toolbar">
+              <span class="badge badge-success">Backend</span>
+              <span class="muted small">Tier 2</span>
+            </div>
+            <h2 class="card-title">REST API</h2>
+            <p class="card-subtitle">Processes requests and manages task operations.</p>
+            <div class="list">
+              <div class="list-row"><span>Technology</span><strong>Python Flask</strong></div>
+              <div class="list-row"><span>Interface</span><strong>REST / JSON</strong></div>
+              <div class="list-row"><span>Container</span><strong>Docker</strong></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="toolbar">
+              <span class="badge badge-success">Database</span>
+              <span class="muted small">Tier 3</span>
+            </div>
+            <h2 class="card-title">Data storage</h2>
+            <p class="card-subtitle">Stores tasks persistently in a relational database.</p>
+            <div class="list">
+              <div class="list-row"><span>Technology</span><strong>MySQL 8.4</strong></div>
+              <div class="list-row"><span>Storage</span><strong>Docker volume</strong></div>
+              <div class="list-row"><span>Database</span><strong>taskdb</strong></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card section-gap">
+          <h2 class="card-title">Request flow</h2>
+          <p class="card-subtitle">How the three tiers communicate.</p>
+          <div class="list">
+            <div class="list-row">
+              <div><strong>1. Browser → Nginx</strong><p class="muted small">Serves the website pages and forwards API requests.</p></div>
+            </div>
+            <div class="list-row">
+              <div><strong>2. Nginx → Flask API</strong><p class="muted small">Routes requests to the backend service over the Compose network.</p></div>
+            </div>
+            <div class="list-row">
+              <div><strong>3. Flask API → MySQL</strong><p class="muted small">Reads and writes task data in the database.</p></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

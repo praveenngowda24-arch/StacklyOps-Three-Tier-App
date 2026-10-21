@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | StacklyOps</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .auth-wrap{max-width:440px;margin:7vh auto;padding:24px}
+    .auth-wrap .card{padding:28px}
+    .auth-wrap label{display:block;margin:16px 0 6px}
+    .auth-wrap input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #d4dce8;border-radius:8px}
+    .auth-wrap button{width:100%;margin-top:20px}
+    .auth-message{margin-top:12px;color:#b42318}
+  </style>
+</head>
+<body>
+  <main class="auth-wrap">
+    <a class="brand" href="login.html"><span class="brand-mark">S</span><span>StacklyOps</span></a>
+    <section class="card">
+      <h1>Welcome back</h1>
+      <p class="muted">Log in to manage your tasks and projects.</p>
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <div class="password-field">
+        <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            required
+        >
+        <button
+            class="password-toggle"
+            id="toggle-password"
+            type="button"
+            aria-label="Show password"
+            aria-pressed="false"
+            aria-controls="password"
+        >
+            <svg id="password-eye-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true">
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        </button>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Log in</button>
+        <p id="message" class="auth-message" role="status"></p>
+      </form>
+      <p>New to StacklyOps? <a href="register.html">Create an account</a></p>
+    </section>
+  </main>
+    
+<script src="assets/js/login.js"></script>
+<style>
+
+/* StacklyOps AI login theme */
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(5, 14, 40, 0.78),
+      rgba(9, 24, 65, 0.48)
+    ),
+    url("assets/images/ai-background.png") center / cover no-repeat fixed;
+  color: #edf4ff;
+}
+
+/* Centered login layout */
+.auth-wrap {
+  width: min(440px, calc(100% - 28px));
+  max-width: 440px;
+  margin: 7vh auto;
+  padding: 24px;
+}
+
+/* Brand logo and company name */
+.auth-wrap .brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 0 30px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.auth-wrap .brand > span:last-child {
+  color: #ffffff;
+}
+
+.auth-wrap .brand > span:last-child::after {
+  content: " AI";
+  color: #54dcff;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.auth-wrap .brand-mark {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 13px;
+  background: linear-gradient(135deg, #397bff, #7655ef);
+  box-shadow: 0 0 25px rgba(55, 123, 255, 0.45);
+  color: #fff;
+}
+
+/* Glass-style login card */
+.auth-wrap .card {
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.28),
+    0 0 35px rgba(64, 137, 255, 0.12);
+  color: #17233d;
+  backdrop-filter: blur(18px);
+}
+
+.auth-wrap .card h1 {
+  margin-top: 0;
+  color: #14213d;
+  font-size: 29px;
+  letter-spacing: -0.8px;
+}
+
+.auth-wrap .card > p {
+  line-height: 1.65;
+}
+
+.auth-wrap .card .muted {
+  color: #6c7890;
+}
+
+.auth-wrap label {
+  display: block;
+  margin: 18px 0 7px;
+  color: #263652;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.auth-wrap input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #d5deed;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #17233d;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.auth-wrap input:focus {
+  border-color: #477bff;
+  box-shadow: 0 0 0 4px rgba(71, 123, 255, 0.13);
+}
+
+.auth-wrap .password-field input {
+  padding-right: 48px;
+}
+
+.auth-wrap .btn-primary {
+  min-height: 47px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #3768f5, #6358ed);
+  box-shadow: 0 7px 18px rgba(55, 104, 245, 0.22);
+  color: #fff;
+  font-weight: 750;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.auth-wrap .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(55, 104, 245, 0.32);
+}
+
+.auth-wrap .card a:not(.brand) {
+  color: #3768f5;
+  font-weight: 650;
+}
+
+.auth-wrap .auth-message {
+  color: #b42318;
+}
+
+@media (max-width: 480px) {
+  .auth-wrap {
+    margin: 4vh auto;
+    padding: 12px;
+  }
+
+  .auth-wrap .card {
+    padding: 24px 20px;
+  }
+
+  .auth-wrap .card h1 {
+    font-size: 25px;
+  }
+}
+</style>
+
+<script>
+  (() => {
+    const password = document.getElementById("password");
+    const toggle = document.getElementById("toggle-password");
+    const icon = document.getElementById("password-eye-icon");
+
+    if (!password || !toggle || !icon) return;
+
+    const eyeIcon = `
+      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    `;
+
+    const eyeOffIcon = `
+      <path d="M3 3l18 18"></path>
+      <path d="M10.6 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a15 15 0 0 1-4 4.7"></path>
+      <path d="M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7c1.4 0 2.7-.3 3.8-.8"></path>
+      <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"></path>
+    `;
+
+    toggle.addEventListener("click", () => {
+      const showPassword = password.type === "password";
+
+      password.type = showPassword ? "text" : "password";
+      toggle.setAttribute(
+        "aria-label",
+        showPassword ? "Hide password" : "Show password"
+      );
+      toggle.setAttribute("aria-pressed", String(showPassword));
+      icon.innerHTML = showPassword ? eyeOffIcon : eyeIcon;
+    });
+  })();
+</script>
+</body>
+</html>
